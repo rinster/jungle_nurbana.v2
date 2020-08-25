@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<div class="register-form">
+<div class="font-header">
+    <h1 [routerLink]="['/home']">Jungle
+        Nurbana</h1>
+</div>
+
+
+<form (submit)=createUser(signupForm) #signupForm="ngForm">
+    <div class="input-container">
+        <h2 style="font-family: open sans, sans-serif; text-align: center;color: #7fb069">Register</h2>
+
+        <p style="font-family: open sans, sans-serif;">Please fill in this form to create an account.</p>
+        <div *ngIf="isSubmitted && problems" class="text-danger">Email account already exists. Please go to <a [routerLink]="['/login']" style="color: #7fb069">login page</a></div>
+
+
+        <!-- name -->
+        <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="text-danger">
+            <div *ngIf="nameInput.invalid">Please enter a name.</div>
+            <div *ngIf="nameInput.errors.minlength">Name must be at least 3 characters long.</div>
+        </div>
+        <div *ngIf="isSubmitted && !nameInput.touched" class="text-danger">
+                <div *ngIf="nameInput.invalid">Please enter a name.</div>
+        </div>
+        <input type="text" placeholder="Name" ngModel name="name" minlength="3" #nameInput ="ngModel" [(ngModel)]="newUser.name" required>
+
+        <!-- email -->
+        <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="text-danger">
+            <div *ngIf="emailInput.invalid">Please enter a valid email.</div>
+        </div>
+        <div *ngIf="isSubmitted && !emailInput.touched" class="text-danger">
+            <div *ngIf="emailInput.invalid">Please enter an email.</div>
+        </div>
+        <input type="text" placeholder="Email" ngModel name="email" #emailInput ="ngModel" [(ngModel)]="newUser.email" required email> 
+
+        <!-- password -->
+        <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="text-danger">
+            <div *ngIf="passwordInput.errors.minlength">Passwords must be at least 6 characters.</div>
+            <div *ngIf="passwordInput.invalid">Please enter a password.</div>
+        </div>
+        <div *ngIf="isSubmitted && !passwordInput.touched" class="text-danger">
+            <div *ngIf="passwordInput.invalid">Please enter a password.</div>
+        </div>
+        <input type="password" placeholder="Password" ngModel name="password" minlength="6" #passwordInput ="ngModel" [(ngModel)]="newUser.password" required>
+        
+        <!-- confirmPassword -->
+        <div *ngIf="confirmpasswordInput.invalid && (confirmpasswordInput.dirty || confirmpasswordInput.touched)" class="text-danger">
+            <div *ngIf="confirmpasswordInput.invalid">Please confirm password.</div>
+            <div *ngIf="passwordInput.value != confirmpasswordInput.value">Passwords do not match.</div>
+        </div>
+        <div *ngIf="isSubmitted" class="text-danger">
+            <div *ngIf="passwordInput.value != confirmpasswordInput.value">Passwords do not match.</div>
+            <div *ngIf="confirmpasswordInput.invalid">Please confirm password.</div>
+        </div>
+        <input type="password" placeholder="Confirm Password" ngModel name="confirmPassword" #confirmpasswordInput="ngModel" [(ngModel)]="confirmpw.pwInput" required>
+
+        <p style="text-align: center;">I already have an <a [routerLink]="['/login']" style="color: #7fb069;">account.</a></p>
+        <p style="font-family: open sans, sans-serif;text-align: center;">By creating an account you agree to our <a href="#" style="color: #7fb069">Terms
+                & Privacy</a>.</p>
+        
+
+        <div class="clearfix">
+            <a [routerLink]="['/home']"><button type="button" class="cancelbtn">Cancel</button></a>
+            <button type="submit" class="signupbtn">Sign Up</button>
+        </div>
+    </div>
+</form>
+</div>

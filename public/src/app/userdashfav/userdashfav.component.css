@@ -1,0 +1,41 @@
+.noFav {
+  text-align: center;
+  padding: 100px;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+#post {
+  margin: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.images {
+  display: inline-block;
+  vertical-align: top;
+  /* margin-right: 20px;
+  margin-left: 20px; */
+}
+#img:hover {
+  opacity: 0.7;
+}
+.infor {
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+  width: 60vw;
+}
+
+#action {
+  display: inline-block;
+  /* vertical-align: top; */
+}
+
+@media screen and (min-width: 5px) and (max-width: 835px) {
+  #img {
+    margin: 30px;
+  }
+}

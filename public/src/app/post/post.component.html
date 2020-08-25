@@ -1,0 +1,85 @@
+<!-- googlefont -->
+<link
+  href="https://fonts.googleapis.com/css?family=Montserrat:600"
+  rel="stylesheet"
+/>
+<!-- animate.css -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+/>
+
+<!-- sticky like button -->
+<!-- if user is logged in -->
+<div *ngIf="post">
+  <div class="icon-bar">
+      <button *ngIf="userLoggedID" [routerLink]="['/userdash/', userLoggedID, 'userprofile', userLoggedID]" class="jungle-nurbana" placement="right" ngbTooltip="My Account"><img id="btn-img" src="../../assets/icons/icons8-customer-50WHITE.png"/></button> 
+      <button *ngIf="!userLoggedID" [routerLink]="['/login']" class="jungle-nurbana" placement="right" ngbTooltip="Login"><img id="btn-img" src="../../assets/icons/icons8-customer-50WHITE.png"/></button> 
+      <button [routerLink]="['/home']" class="jungle-nurbana" placement="right" ngbTooltip="Main Page"><img id="btn-img" src="../../assets/icons/icons8-home-page-50WHITE.png"/></button> 
+      
+      <div *ngIf='fav && userLoggedID'>
+        <form (submit)="enableDisableRule()" *ngIf="userLoggedID != post.author" >
+          <input type="hidden" name="favPostId" [(ngModel)]="fav.favPostId" >
+          <input type="hidden" name="favoriterId" [(ngModel)]="fav.favoriterId" >
+          <button type="submit" value="submit" [ngClass]="{'jungle-nurbana' : toggle, 'red': !toggle}" ><img id="btn-img" src="../../assets/icons/icons8-heart-WHITE50.png"/></button> 
+        </form>
+        <div *ngIf='submitted' class="animated fadeOutDown" style="animation-duration: 3s; color: rgb(212, 94, 94);"><strong>{{msg}}</strong></div> 
+        <div *ngIf='flashmsg' class="animated fadeOutDown" style="animation-duration: 3s; color: rgb(39, 95, 32);"><strong>{{msg}}</strong></div> 
+
+      </div>  
+
+  </div>
+</div>
+
+<div class="content">
+
+  <h1 [routerLink]="['/home']" style="text-align:center">
+    <img
+      height="50px"
+      width="50px"
+      src="../../assets/mdeliciousIcon.jpeg"
+      alt="Monstera Icon"
+    />&nbsp;Jungle Nurbana
+  </h1>
+
+  <div class="blogPost" *ngIf="post">
+    <h2>{{ post.title }}</h2>
+    <h3>{{ post.name }} </h3>
+    <ul style="list-style-type:none">
+      <li>
+        {{ post.createdAt | date }}, {{ post.createdAt | date: "shortTime" }}
+      </li>
+      <li *ngIf="author" class="author-link">Writer: <a [routerLink]="['/author/', post.author]">{{ author.name }}</a></li>
+      <li>{{ minRead }} min. read</li>
+      <br />
+      <br />
+      <li>Location: &nbsp; {{ post.location }}</li>
+      <li>Plant: &nbsp; {{ post.type }}</li>
+    </ul>
+
+    <app-posttext [postText]="post.postText"></app-posttext>
+
+    <div class="images">
+      <img
+        width="100%"
+        height="100%"
+        src="{{post.imageUrl1}}"
+        alt="Post Image 1"
+      />
+      <img
+        *ngIf="post.imageUrl2"
+        width="100%"
+        height="100%"
+        src="{{post.imageUrl2}}"
+        alt="Post Image 2"
+      />
+      <img
+        *ngIf="post.imageUrl3"
+        width="100%"
+        height="100%"
+        src="{{post.imageUrl3}}"
+        alt="Post Image 3"
+      />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+#editPostComponent {
+  padding: 15px;
+  margin-left: 30px;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 35px;
+  color: #689156;
+  display: inline-block;
+  padding: 30px;
+}
+p {
+  margin-left: 110px;
+}
+.Form {
+  margin: 0 auto;
+}
+
+.Form div + div {
+  margin-top: 1em;
+}
+
+label {
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+  vertical-align: top;
+}
+
+input {
+  font: 1em sans-serif;
+  box-sizing: border-box;
+  border: 1px solid #999;
+  margin-left: 1em;
+  padding: 5px;
+}
+
+#textarea {
+  font: 1em sans-serif;
+  margin-left: 1em;
+  width: 67%;
+}
+
+input:focus {
+  border-color: #000;
+}
+
+.Button {
+  padding-left: 10px;
+  margin-top: 20px;
+}
+#cancel {
+  background-color: rgb(212, 94, 94);
+  padding: 5px;
+}
+button {
+  margin-left: 0.5em;
+  background-color: #7fb069;
+  color: white;
+  width: 80px;
+  padding: 5px;
+}
+
+button:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,54 @@
+<!-- googlefont -->
+<link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:600" rel="stylesheet">
+<!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+
+<div class="login-container">
+
+
+    <form class="form-container" (submit)=loginClicked(loginForm) #loginForm="ngForm">
+        <div class="row">
+            <div class="vl"></div> 
+
+            <div class="col">
+                <h1 [routerLink]="['/home']" >Jungle Nurbana</h1>
+            </div>
+
+            <div class="col" id="header">
+                <div class="hide-md-lg">
+                    <h2 class="vl" style="font-family: open sans, sans-serif;">Login</h2>
+            </div>
+              
+
+                <!-- email -->
+                <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="text-danger">
+                    <div *ngIf="emailInput.invalid">Please enter a valid email.</div>
+                </div>
+                <div *ngIf="isSubmitted && !emailInput.touched" class="text-danger">
+                    <div *ngIf="emailInput.invalid">Please enter an email.</div>
+                    <div *ngIf="error">{{error}}</div>
+                </div>
+                <div *ngIf="isSubmitted" class="text-danger">
+                    <div *ngIf="error">{{error}}</div>
+                </div>
+                <input class="login-input" type="text" name="email" placeholder="Email" ngModel #emailInput="ngModel" [(ngModel)]="userLogged.email" required email>
+                
+                <!-- password -->
+                <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="text-danger">
+                    <div *ngIf="passwordInput.errors.minlength || passwordInput.invalid">Invalid password.</div>
+                </div>
+                <div *ngIf="isSubmitted && !passwordInput.touched" class="text-danger">
+                    <div *ngIf="passwordInput.invalid">Please enter a password.</div>
+                </div>
+                <input class="login-input" type="password" name="password" placeholder="Password" ngModel #passwordInput="ngModel" [(ngModel)]="userLogged.password" required>
+                
+                <input type="submit" value="Login">
+                <p style="font-family: open sans, sans-serif;"> Don't have an account? <a class="register-link" [routerLink]="['/register']">Create one</a></p>
+            </div>
+
+        </div>
+    </form>
+</div>

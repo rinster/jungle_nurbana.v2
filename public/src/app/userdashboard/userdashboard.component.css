@@ -1,0 +1,64 @@
+.userdash {
+  height: 88vh;
+  vertical-align: top;
+}
+
+.header {
+  padding: 10px;
+  background-color: #7fb069;
+  height: 45px;
+  width: 100vw;
+}
+.header h3 {
+  color: white;
+  font-family: "Libre Franklin", sans-serif;
+  display:inline-block;
+}
+
+.header a {
+  display: block;
+  float: right;
+  color: white;
+}
+
+.user-navbar {
+  display: inline-block;
+  background-color: rgb(54, 57, 51);
+  height: 83vh;
+  width: 55px;
+}
+.icon {
+  display: block;
+  color: white;
+  text-align: center;
+  margin: 0px;
+}
+
+.icon img {
+  height: 25px;
+  width: 25px;
+  margin: 25px 15px 20px 15px;
+}
+
+
+.userdash-window {
+  display: inline-block;
+  vertical-align: top;
+  /* border: 2px solid orange; */
+  height: 83vh;
+  width: 95vw;
+  overflow: auto;
+}
+
+@media screen and (min-width: 575px) and (max-width: 1100px) {
+  .userdash-window {
+    width: 90vw;
+  }
+
+}
+@media screen and (min-width: 0px) and (max-width: 574px) {
+  .userdash-window {
+    width: 85vw;
+  }
+
+}

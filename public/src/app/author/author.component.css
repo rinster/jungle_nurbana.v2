@@ -1,0 +1,166 @@
+.author-component {
+  height: 92vh;
+  overflow: auto;
+}
+
+.login-link {
+  float: right;
+  margin-right: 25px;
+  margin-bottom: 45px;
+  font-size: 20px;
+  background-color: #7fb069;
+  color: white;
+  padding: 10px;
+}
+.login-link a {
+  text-decoration: none;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-link a:hover {
+  opacity: 0.5;
+  color: #154126;
+}
+
+.header h1 {
+  margin-top: 50px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 60px;
+  color: #689156;
+}
+.main-body {
+  display: block;
+  margin-top: 50px;
+}
+
+/* card */
+p,
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+.ff-serif {
+  font-family: "Lora", serif;
+}
+
+.font-weight-normal {
+  font-weight: normal;
+}
+.font-weight-medium {
+  font-weight: 500;
+}
+
+.lts-1px {
+  letter-spacing: 1px;
+}
+.lts-2px {
+  letter-spacing: 2px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.small {
+  font-size: 0.75rem;
+}
+.card-heading {
+  font-size: 2.25rem;
+}
+.styled-link {
+  text-decoration: none;
+  outline: none;
+  color: #7fb069;
+  transition: all 0.25s ease-in;
+}
+.styled-link:hover,
+.styled-link:focus,
+.styled-link:active {
+  color: #547445;
+}
+.shadow-1 {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+}
+.green-hover {
+  transition: all 0.25s ease-in;
+  border-bottom: 5px solid transparent;
+}
+.green-hover:hover {
+  transform: translateY(-5px);
+  border: none;
+  border-bottom: 5px solid #7fb069;
+}
+
+/**Margin and padding utilities*/
+.mt-0 {
+  margin-top: 10;
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-1 {
+  margin-bottom: 1rem;
+}
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.ml-2 {
+  margin-left: 2rem;
+}
+.px-2 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.py-2 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#postCard {
+  height: 550px;
+  display: inline-block;
+  margin-left: 25px;
+  margin-top: 15px;
+  vertical-align: top;
+}
+
+@media screen and (min-width: 1270px) and (max-width: 2000px) {
+  #postCard {
+    width: 23%;
+  }
+}
+@media screen and (min-width: 780px) and (max-width: 1269px) {
+  #postCard {
+    width: 30%;
+    height: 500px;
+  }
+  #prevTxt {
+    font-size: 13px;
+  }
+}
+@media screen and (min-width: 530px) and (max-width: 779px) {
+  #postCard {
+    width: 45%;
+    height: 475px;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 529px) {
+  #postCard {
+    width: 85%;
+    height: 450px;
+  }
+  .d-block img {
+    height: 175px;
+  }
+}

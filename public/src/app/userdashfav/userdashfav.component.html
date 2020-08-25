@@ -1,0 +1,46 @@
+<div class="noFav" *ngIf="noFavorites">
+  <h1>Looks like you have no favorites yet!</h1>
+  <img width="225px" height="225px" src="../../assets/cactus.png" alt="Cactus wants Hugs">
+  <h4>Check out some blogs and add some :) </h4>
+</div>
+
+<div *ngIf="favPosts">
+  <div id="post" *ngFor="let x of favPosts">
+    <div class="images">
+
+      <img
+        id="img"
+        height="200px"
+        width="200px"
+        src="{{x.imageUrl1}}"
+        [routerLink]="['/post/', x._id]"
+      />
+
+    </div>
+    <div class="infor">
+      <h4>{{ x.title | uppercase }}</h4>
+      <p>
+        <strong>Posted: </strong>{{ x.createdAt | date }} -
+        {{ x.createdAt | date: "shortTime" }}
+      </p>
+
+      <ul style="list-style-type:none">
+        <li><strong>Subtitle: </strong> {{ x.name }} - {{ x.type }}</li>
+        <li><strong>Location: </strong> {{ x.location }}</li>
+        <li [innerHTML]="removeHtml(x.postText | slice: 0:600)"></li> 
+      </ul>
+
+
+      <button id="action" class="btn btn-primary" [routerLink]="['/post/', x._id]">View Post</button> &nbsp; 
+        <!-- Delete modal trigger here -->
+      <app-ngbd-modal-deletefavorite id="action" [post]="x"  [userId]="userId" (myEvent)="invoke()"></app-ngbd-modal-deletefavorite>
+
+    </div>
+  </div>
+
+
+
+</div>
+
+
+

@@ -1,0 +1,63 @@
+<!-- googlefont -->
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Lora|Roboto:400,500"
+/>
+<div class="author-component">
+    <div class="login-link" *ngIf="!userLoggedID">
+        <a [routerLink]="['/home']">Home</a>
+      </div>
+      <div
+        class="login-link"
+        *ngIf="userLoggedID"
+      >
+        <a
+          [routerLink]="['/userdash/', userLoggedID, 'userprofile', userLoggedID]"
+          >Hello {{ userName }}!</a
+        >
+      </div>
+
+<div class="header">
+  <h1>{{authorName}}</h1>
+</div>
+<div class="main-body">
+  <div
+    id="postCard"
+    class="bg-white mt-10 shadow-1 green-hover"
+    style="overflow: hidden; border-radius: 1px;"
+    *ngFor="let x of posts"
+    [routerLink]="['/post/', x._id]"
+  >
+    <div>
+      <img
+        src="{{x.imageUrl1}}"
+        alt="Article Photo"
+        class="d-block"
+        height="275px"
+        width="100%"
+      />
+
+      <div class="px-2 py-2">
+        <p
+          class="mb-0 small font-weight-medium text-uppercase mb-1 text-muted lts-2px"
+        >
+          {{ x.createdAt | date: "MMM d" }} &nbsp; &diams; &nbsp;
+          {{ x.postText | readTime }} min. read
+        </p>
+        <h1
+          class="ff-serif card-heading mt-0 mb-1"
+          style="line-height: 1.25; font-size: 19px"
+        >
+          {{ x.title | uppercase }}
+        </h1>
+      </div>
+
+      <a
+        class="text-uppercase font-weight-medium lts-2px ml-2 mb-2 text-center styled-link"
+      >
+        Read More
+      </a>
+    </div>
+  </div>
+</div>
+</div>

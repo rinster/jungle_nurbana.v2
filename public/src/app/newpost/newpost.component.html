@@ -1,0 +1,139 @@
+<!-- bootstrap -->
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+  crossorigin="anonymous"
+/>
+<!-- googlefont -->
+<link
+  href="https://fonts.googleapis.com/css?family=Libre+Franklin:100"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css?family=Montserrat:600"
+  rel="stylesheet"
+/>
+
+<div id="newpostComponent">
+
+  <h1 style="text-align:center">
+    <img
+      height="50px"
+      width="50px"
+      src="../../assets/mdeliciousIcon.jpeg"
+      alt="Monstera Icon"
+    />&nbsp;New Post
+  </h1>
+
+  <div class="Form">
+    <form *ngIf="newPost" (submit)="newBlogPost()">
+      <div>
+        <input
+          type="text"
+          class="col-8"
+          name="title"
+          placeholder="Title"
+          [(ngModel)]="newPost.title"
+        />
+        <div *ngIf="titleIssue">
+          <p class="text-danger">{{ titleIssue.message }}</p>
+        </div>
+      </div>
+
+      <div>
+        <input
+          type="text"
+          class="col-8"
+          name="name"
+          placeholder="Subtitle"
+          [(ngModel)]="newPost.name"
+        />
+        <div *ngIf="nameIssue">
+          <p class="text-danger">{{ nameIssue.message }}</p>
+        </div>
+      </div>
+
+      <div>
+        <input
+          type="text"
+          class="col-8"
+          name="type"
+          placeholder="Plant Type"
+          [(ngModel)]="newPost.type"
+        />
+        <div *ngIf="typeIssue">
+          <p class="text-danger">{{ typeIssue.message }}</p>
+        </div>
+      </div>
+
+      <div>
+        <input
+          type="text"
+          class="col-8"
+          name="location"
+          placeholder="Location/Climate"
+          [(ngModel)]="newPost.location"
+        />
+        <div *ngIf="locIssue">
+          <p class="text-danger">{{ locIssue.message }}</p>
+        </div>
+      </div>
+
+      <div>
+        <angular-editor
+          id="postText"
+          name="postText"
+          class="col-8"
+          cols="30"
+          rows="10"
+          [(ngModel)]="newPost.postText"
+          [config]="config"
+        ></angular-editor>
+        <div *ngIf="postIssue">
+          <p class="text-danger">{{ postIssue.message }}</p>
+        </div>
+      </div>
+
+      <div>
+        <input
+          type="text"
+          class="col-8"
+          name="imageURL1"
+          placeholder="Image URL"
+          [(ngModel)]="newPost.imageUrl1"
+        />
+        <div *ngIf="imgIssue">
+          <p class="text-danger">{{ imgIssue.message }}</p>
+        </div>
+      </div>
+
+      <div>
+        <input
+          type="text"
+          class="col-8"
+          name="imageURL2"
+          placeholder="Image URL(optional)"
+          [(ngModel)]="newPost.imageUrl2"
+        />
+      </div>
+
+      <div>
+        <input
+          type="text"
+          class="col-8"
+          name="imageURL3"
+          placeholder="Image URL(optional)"
+          [(ngModel)]="newPost.imageUrl3"
+        />
+      </div>
+
+
+      <div class="Button">
+        <button type="submit" class="col-8" value="submit">Post</button> &nbsp;
+        <button id="cancel" (click)="cancel()">Cancel</button>
+      </div>
+      <br />
+    </form>
+  </div>
+</div>

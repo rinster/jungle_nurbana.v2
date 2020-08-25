@@ -1,0 +1,54 @@
+<div class="noPosts" *ngIf="noPosts">
+  <h1>Looks pretty lonely in here...</h1>
+  <img
+    width="225px"
+    height="225px"
+    src="../../assets/cactus.png"
+    alt="Cactus wants Hugs"
+  />
+  <h4>Try posting some blog posts of your own.</h4>
+</div>
+
+<div *ngIf="posts">
+  <div id="post" *ngFor="let x of posts">
+    <div class="images">
+
+      <img
+        id="img"
+        height="200px"
+        width="200px"
+        src="{{x.imageUrl1}}"
+        [routerLink]="['/post/', x._id]"
+      />
+
+    </div>
+    <div class="infor">
+      <h4>{{ x.title | uppercase }}</h4>
+      <p>
+        <strong>Posted: </strong>{{ x.createdAt | date }} -
+        {{ x.createdAt | date: "shortTime" }}
+        <i *ngIf="x.createdAt != x.updatedAt">
+          (Edited: {{ x.updatedAt | date }} -
+          {{ x.updatedAt | date: "shortTime" }})</i>
+      </p>
+
+      <ul style="list-style-type:none">
+        <li><strong>Type: </strong> {{ x.name }} - {{ x.type }}</li>
+        <li><strong>Location: </strong> {{ x.location }}</li>
+        <li [innerHTML]="removeHtml(x.postText | slice: 0:600)">...</li>
+      </ul>
+
+      <button id="action" class="btn btn-success" [routerLink]="['/userdash/', x.author, 'editPost', x._id]">Edit</button> &nbsp; 
+      <button id="action" class="btn btn-primary" [routerLink]="['/post/', x._id]">View Post</button> &nbsp; 
+        <!-- Delete modal trigger here -->
+      <app-ngbd-modal-focus id="action" [selectedID]="x._id" [author]="x.author" [blogTitle]="x.title" (myEvent)="invoke()"></app-ngbd-modal-focus>
+
+    </div>
+  </div>
+
+
+
+</div>
+
+
+

@@ -1,0 +1,90 @@
+<!-- bootstrap -->
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+  crossorigin="anonymous"
+/>
+<!-- googlefont -->
+<link
+  href="https://fonts.googleapis.com/css?family=Libre+Franklin:100"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css?family=Montserrat:600"
+  rel="stylesheet"
+/>
+
+<div id="editProfileComponent">
+  <h1 style="text-align:center">
+    <img
+      height="50px"
+      width="50px"
+      src="../../assets/mdeliciousIcon.jpeg"
+      alt="Monstera Icon"
+    />&nbsp;Edit Profile
+  </h1>
+
+  <div class="Form">
+
+    <form *ngIf="editProfile" (submit)="edit()">
+      <div>
+        <label>Header</label>
+        <input
+          type="text"
+          class="col-8"
+          name="header"
+          [(ngModel)]="editProfile.header"
+        />
+        <div *ngIf="headerIssue">
+          <p class="text-danger">{{ headerIssue.message }}</p>
+        </div>
+      </div>
+
+      <div>
+        <label>Expertise</label>
+        <input
+          type="text"
+          class="col-8"
+          name="expertise"
+          [(ngModel)]="editProfile.expertise"
+        />
+        <div *ngIf="expertiseIssue">
+          <p class="text-danger">{{ expertiseIssue.message }}</p>
+        </div>
+      </div>
+
+      <div>
+        <label>Biography</label>
+        <input
+          type="text"
+          class="col-8"
+          name="bio"
+          [(ngModel)]="editProfile.bio"
+        />
+        <div *ngIf="bioIssue">
+          <p class="text-danger">{{ bioIssue.message }}</p>
+        </div>
+      </div>
+
+      <div>
+        <label>Profile Picture Url</label>
+        <input
+          type="text"
+          class="col-8"
+          name="imageUrl"
+          [(ngModel)]="editProfile.imageUrl"
+        />
+        <div *ngIf="imgIssue">
+          <p class="text-danger">{{ imgIssue.message }}</p>
+        </div>
+      </div>
+
+      <div class="Button">
+        <button type="submit" class="col-8" value="submit">Post</button> &nbsp;
+        <button id="cancel" (click)="cancel()">Cancel</button>
+      </div>
+      <br />
+    </form>
+  </div>
+</div>

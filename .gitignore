@@ -1,0 +1,12 @@
+# Ignore node_modules
+./node_modules
+./public/node_modules
+
+# compiled output
+./public/dist
+./public/tmp
+./public/out-tsc
+
+# System Files
+.DS_Store
+Thumbs.db

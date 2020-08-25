@@ -1,0 +1,40 @@
+<!-- googlefont -->
+<link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:600" rel="stylesheet">
+<!-- bootstrap-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+<div class="userdash">
+  <div class="header">
+    <h3>{{name}}</h3>
+    <a (click)="logoutClicked()" placement="bottom" ngbTooltip="Logout">Logout</a>
+  </div>
+
+  <div class="user-navbar">
+    <div class="icon">
+      <a [routerLink]="['userprofile', userID]" placement="right" ngbTooltip="Profile"><img src="../../assets/icons/icons8-customer-50.png" alt="user"></a>
+    </div>
+    <div class="icon">
+      <a [routerLink]="['userdash-allposts/', userID]" placement="right" ngbTooltip="Your Posts"><img src="../../assets/icons/news-50.png" alt="All posts"></a>
+    </div>
+    <div class="icon">
+      <a [routerLink]="['userfav']" placement="right" ngbTooltip="Favorites"><img src="../../assets/icons/heart-outline-50.png" alt="Favorites"></a>
+    </div>
+    <div class="icon">
+      <a [routerLink]="['useranalytics']" placement="right" ngbTooltip="Analytics (Coming Soon!)"><img src="../../assets/icons/increase-50.png" alt="Analytics"></a>
+    </div>
+    <div class="icon">
+        <a [routerLink]="['new/', userID ]" placement="right" ngbTooltip="Add New Post"> <img src="../../assets/icons/icons8-plus-50.png" alt="Add Post"></a>
+    </div>
+    <div class="icon">
+        <a [routerLink]="['/home']" placement="right" ngbTooltip="Home"><img src="../../assets/icons/home-page-50.png" alt="Home"></a>
+    </div>
+  </div>
+
+  <div class="userdash-window">
+      <router-outlet></router-outlet>
+  </div>
+
+
+</div>

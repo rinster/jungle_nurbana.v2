@@ -1,0 +1,49 @@
+
+.router-footer {
+  /* border: 2px solid orange; */
+  border-top: 1px solid rgb(176, 174, 174);
+  padding: 15px 15px;
+  /* margin: 30px; */
+  background-color: #7FB069;
+  
+}
+
+/* Social Media Links */
+.fa {
+  padding: 0px 20px 10px 20px;
+  font-size: 17px;
+  width: 17px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  color: white;
+}
+/* hover effect */
+.fa:hover {
+  opacity: 0.5;
+  color: #154126;
+}
+
+.mainlink:hover {
+  opacity: 0.5;
+  color:  #154126;
+}
+.mainlink:visited {
+  color: white;
+}
+
+
+.footer-links {
+  font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif!important;
+  font-size: 12px;
+  color: white;
+}
+.footer-links a {
+  margin: 10px 10px;
+}
+.footer-copyright {
+  font-family: "Libre Franklin", sans-serif;
+  margin: 8px;
+  font-size: 12px;
+  color: white;
+}

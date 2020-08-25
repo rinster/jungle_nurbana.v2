@@ -1,0 +1,25 @@
+<!-- animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+
+<div id="userProfile" class="animated fadeInUp slow">
+
+  <div class="card" *ngIf="userInfo">
+    <img src="../../assets/icons/janeDoeHat.png" alt="Avatar" height="200px" width="200px">
+    <h1>{{name}}</h1>
+    <p class="title">{{userInfo.header}}</p>
+    <p>About Me:</p>
+    <p>{{userInfo.bio}}</p>
+
+    <p><button (click)="goToEdit()">Edit</button></p>
+  </div>
+
+  <div class="card" *ngIf="!userInfo">
+    <img src="../../assets/icons/icons8-contacts-208 (1).png" alt="Avatar" height="100%" width="100px">
+    <h3 style="margin: 50px;">Introduce yourself to the community. Edit your profile :)</h3>
+
+
+    <p><button (click)="goToEdit()">Edit</button></p>
+  </div>
+
+</div>
